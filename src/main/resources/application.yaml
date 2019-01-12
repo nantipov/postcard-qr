@@ -8,6 +8,7 @@ spring:
 qr-postcard:
   base-url: https://speaker.nantipov.org/pqr/postcard/%s/view
   ipinfo-url: https://ipinfo.io/{ip}/json
+  ipinfo-header: X-Real-IP
 
 logging:
   level:
