@@ -4,12 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.nantipov.postcard.postcardservice.services.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.io.IOException;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 @Slf4j
 @Controller
@@ -23,14 +22,10 @@ public class QRCodeController {
     }
 
     @GetMapping("/qr/{messageCode}")
-    public void showQRCodeImage(@PathVariable("messageCode") String messageCode, HttpServletResponse response) {
-        response.setContentType(MediaType.IMAGE_PNG.toString());
-        try {
-            assetService.writeMessageQRCode(messageCode, response.getOutputStream());
-        } catch (IOException e) {
-            log.error("Could not transfer data", e);
-            throw new IllegalStateException(); //TODO: proper streams handling
-        }
+    public ResponseEntity<StreamingResponseBody> showQRCodeImage(@PathVariable("messageCode") String messageCode) {
+        return ResponseEntity.ok()
+                             .contentType(MediaType.IMAGE_PNG)
+                             .body(responseStream -> assetService.writeMessageQRCode(messageCode, responseStream));
     }
 
 }
