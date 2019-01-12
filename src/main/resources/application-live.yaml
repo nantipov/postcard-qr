@@ -5,3 +5,6 @@ spring:
     url: ${DB_URL}
     password: ${DB_USERNAME}
     username: ${DB_PASSWORD}
+
+qr-postcard:
+  assets-dir: ${POSTCARD_ASSETS_DIR}

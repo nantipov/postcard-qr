@@ -22,7 +22,10 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) {
-        //TODO modelAndView.getModel() can be null
-        logService.log(request, (String) modelAndView.getModel().get(PostcardController.MODEL_ATTR_MESSAGE_CODE));
+        String messageCode = "";
+        if (modelAndView != null && modelAndView.getModel() != null) {
+            messageCode = (String) modelAndView.getModel().get(PostcardController.MODEL_ATTR_MESSAGE_CODE);
+        }
+        logService.log(request, messageCode);
     }
 }

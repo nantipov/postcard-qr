@@ -29,7 +29,7 @@ public class QRCodeController {
             assetService.writeMessageQRCode(messageCode, response.getOutputStream());
         } catch (IOException e) {
             log.error("Could not transfer data", e);
-            throw new IllegalStateException(); //TODO
+            throw new IllegalStateException(); //TODO: proper streams handling
         }
     }
 

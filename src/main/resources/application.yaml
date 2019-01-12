@@ -7,7 +7,6 @@ spring:
 
 qr-postcard:
   base-url: https://speaker.nantipov.org/postcard
-  assets-dir: /tmp/
   ipinfo-url: https://ipinfo.io/{ip}/json
 
 logging:
