@@ -67,10 +67,13 @@ public class AssetService {
     }
 
     public void writeMessageQRCode(String messageCode, OutputStream outputStream) {
-        String textToEncode = baseUrl + "/" + messageCode + "/view";
+        String textToEncode = String.format(baseUrl, messageCode);
         Url schemaUrl = new Url();
         schemaUrl.setUrl(textToEncode);
-        QRCode.from(schemaUrl).to(ImageType.PNG).withSize(250, 250).writeTo(outputStream);
+        QRCode.from(schemaUrl)
+              .to(ImageType.PNG)
+              .withSize(250, 250)
+              .writeTo(outputStream);
     }
 
     private String generateMessageCode() {

@@ -19,13 +19,13 @@
     <#list logEntries as i>
         <tr>
         <td>${i.messageCode!""}</td>
-        <td>${i.createdAt}</td>
-        <td>${i.requestPath}</td>
+        <td>${i.createdAt!""}</td>
+        <td>${i.requestPath!""}</td>
         <td>${i.ipAddress!""}</td>
         <td>
         <pre><code class="json">${i.ipInfo!""}</code></pre>
         </td>
-        <td>${i.userAgent}</td>
+        <td>${i.userAgent!""}</td>
         </tr>
     </#list>
 </table>
