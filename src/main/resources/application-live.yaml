@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    password: ${DB_USERNAME}
+    username: ${DB_PASSWORD}
