@@ -8,3 +8,6 @@ spring:
 
 qr-postcard:
   assets-dir: ${POSTCARD_ASSETS_DIR}
+
+server:
+  port: ${APP_PORT}
