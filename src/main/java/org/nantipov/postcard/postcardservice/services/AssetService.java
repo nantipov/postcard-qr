@@ -43,7 +43,8 @@ public class AssetService {
                     .find(
                             Paths.get(assetsDirectory, messageCode),
                             1,
-                            (path, attrs) -> path.toString().endsWith(".gpg") && attrs.isRegularFile()
+                            (path, attrs) -> (path.toString().endsWith(".gpg") || path.toString().endsWith(".pgp")) &&
+                                             attrs.isRegularFile()
                     )
                     .findAny();
         } catch (IOException e) {
