@@ -6,8 +6,8 @@ spring:
     open-in-view: false
   servlet:
     multipart:
-      max-file-size: 45MB
-      max-request-size: 45MB
+      max-file-size: 50MB
+      max-request-size: 50MB
 
 
 qr-postcard:
