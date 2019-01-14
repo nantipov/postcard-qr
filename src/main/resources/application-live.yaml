@@ -5,6 +5,10 @@ spring:
     url: ${DB_URL}
     password: ${DB_USERNAME}
     username: ${DB_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 30MB
+
 
 qr-postcard:
   assets-dir: ${POSTCARD_ASSETS_DIR}
