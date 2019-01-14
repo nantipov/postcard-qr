@@ -4,6 +4,11 @@ spring:
     suffix: .ftl
   jpa:
     open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 45MB
+      max-request-size: 45MB
+
 
 qr-postcard:
   base-url: https://speaker.nantipov.org/pqr/postcard/%s/view
